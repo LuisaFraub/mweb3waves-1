@@ -30,16 +30,22 @@ ReactDOM.render(
     </ThemeProvider>,
     document.getElementById('root'),
 );
-let dappaddress = '3N5HzCuVFaprA1w6eo9MdFmkCG77foHZu6a';
+/*let dappaddress = '3N5HzCuVFaprA1w6eo9MdFmkCG77foHZu6a';*/
+let dappaddress='3N2nCHvKXtFH8RUsGQB4LVEwVEWfTsT5i2B';
 let baseUri = 'https://testnodes.wavesnodes.com';
 nodeInteraction.accountData(dappaddress, baseUri).then((v) => {
     window.dAppData = v;
     if (v) {
         window.dAppDataKeys = Object.keys(v);
+        console.log("dappaddress:"+dappaddress);
         console.log("dApp Account data:");
         console.log(v);
         console.log(JSON.stringify(v));
     }
+});
+
+nodeInteraction.currentHeight('https://nodes.wavesplatform.com/').then((res) => {
+  console.log("currentHeight:" + res);
 });
 
 const authData = { data: "Auth on my 'Coupon Bazaar' site" };
